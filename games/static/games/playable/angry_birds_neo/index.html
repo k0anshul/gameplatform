@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AngryBird ShootGame</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- <script src="./js/main.js"></script> -->
+    
+</head>
+<body id="body">
+    
+    <div id="score">Score : <span id="currentScore">0</span></div>
+    <div id="bullets">Bullets : <span id="currentBullet">14</span></div>
+    <div id="lifeline">Lifeline : <span id="currentlifeLine">1</span></div>
+ 
+    <div class="splash">
+        <img src="./images/splash.png" alt="">
+        <h1 class = "splash-header">Welcome to Angry Bird Shoot Game!!</h1>
+        <p>--------------------- How to Play ?? ---------------------</p>
+        <p>Instructions</p>
+        <ul>
+            <li>Game has two Angry birds. The Red & The Black.</li>
+            <li>Player has 14 Bullets & 1 Lifeline.</li>
+            <li>Player can shoot bird using Mouse Click.</li>
+            <li>Player has to shoot Red Angry bird. It will give you point.
+                <ul>
+                    <li>If Player shoot all Red Bird, Score will be 12 and He will won the game.</li>
+                    <li>If Player can't shoot all Red Bird, His score will bellow 12, Then Game will Over.</li>
+                </ul>
+            </li>
+            <li>If Player shoot Black bird. It will decrease your point & your lifeline will be 0.
+                <ul>
+                    <li>If Player has 0 lifeline and If he shoots black bird, then Game will over.</li>
+                </ul>
+            </li>
+            <li>Game has bonus point, If you shoot the coin It will Either refill your bullets or lifeline.</li>
+        </ul>
+        <h1 class = "splash-header">Click on the screen to Play</h1>
+    </div>
+    <script src="./js/angryBird.js"></script>
+    <script src="./js/bombBird.js"></script>
+    <script src="./js/lifeLine.js"></script>
+    <script src="./js/game.js"></script>
+</body>
+</html>

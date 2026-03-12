@@ -1,0 +1,126 @@
+/**
+ * Main CSS Styles for Fruit Ninja
+ * Clean, modern game UI (no neon/cyberpunk)
+ */
+
+/* Global Reset and Base Styles */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: url("../gamebg.png") no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Canvas Styles */
+canvas { display: block; position: absolute; top: 0; left: 0; }
+
+/* Score Display */
+#score {
+  position: absolute; top: 20px; left: 20px;
+  font-size: 28px; font-weight: 700; color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  z-index: 10; background: rgba(0,0,0,0.35);
+  padding: 10px 16px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Game Over Overlay */
+#gameOver {
+  position: fixed; inset: 0; display: none; align-items: center; justify-content: center;
+  background: rgba(0, 0, 0, 0.85); z-index: 1000; cursor: pointer;
+}
+
+.gameOverPanel {
+  background: rgba(20,20,25,0.9);
+  padding: 32px 40px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.12);
+  text-align: center; max-width: 520px; width: 90%;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.gameOverTitle { font-size: 44px; font-weight: 900; color: #fff; margin-bottom: 16px; }
+.gameOverScore { font-size: 28px; color: #ffd166; margin-bottom: 8px; }
+.gameOverSubtext { font-size: 18px; color: #c9d1d9; }
+
+/* Ready Screen Overlay */
+#readyScreen {
+  position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.7); z-index: 100; color: #fff; font-size: 52px; cursor: pointer;
+  transition: opacity 0.5s ease;
+}
+#readyApple { font-size: 110px; margin: 26px; animation: bounce 2s infinite; }
+#readySubtext { font-size: 24px; margin-top: 12px; color: #e6edf3; text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
+
+@keyframes bounce { 0%,20%,50%,80%,100%{transform:translateY(0);} 40%{transform:translateY(-18px);} 60%{transform:translateY(-8px);} }
+
+/* Main Menu and Settings Menu */
+#mainMenu, #settingsMenu { position: fixed; inset: 0; display: flex; align-items: center; justify-content: flex-start; z-index: 2000; }
+
+/* Main menu uses hero background */
+#mainMenu {
+  background: linear-gradient( to right, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.25) 70%, rgba(0,0,0,0.2) 100%),
+              url("../mainmenu.webp") center center / cover no-repeat;
+  padding-left: 8vw;
+}
+
+/* Settings menu keeps a soft dim background */
+#settingsMenu { background: rgba(0,0,0,0.8); justify-content: center; }
+
+.menuPanel {
+  background: rgba(20,20,25,0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 32px 36px; border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.12);
+  width: 420px; max-width: 90vw; color: #e6edf3;
+  box-shadow: 0 12px 50px rgba(0,0,0,0.55);
+}
+
+.menuTitle { font-size: 40px; font-weight: 900; color: #fff; margin-bottom: 22px; text-align: left; }
+
+.menuButton {
+  position: relative; display: block; width: 100%; text-align: left;
+  padding: 16px 20px 16px 24px; margin: 12px 0; border-radius: 12px;
+  background: rgba(255,255,255,0.06); color: #fff; border: 1px solid rgba(255,255,255,0.12);
+  font-size: 20px; font-weight: 700; letter-spacing: 0.3px; cursor: pointer;
+  transition: transform .15s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+  overflow: hidden;
+}
+.menuButton::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; border-radius: 12px 0 0 12px;
+  background: linear-gradient(180deg, #ffd166, #ef476f);
+  transform: scaleY(0.2); opacity: 0.7; transition: transform .2s ease;
+}
+.menuButton:hover { transform: translateX(6px); background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.25); box-shadow: 0 8px 24px rgba(0,0,0,0.35); }
+.menuButton:hover::before { transform: scaleY(1); }
+
+.setting { margin: 18px 0; text-align: left; }
+.setting label { display: block; font-size: 16px; color: #c9d1d9; margin-bottom: 10px; }
+
+input[type="range"] {
+  -webkit-appearance: none; appearance: none; width: 100%; height: 8px; background: #2d333b; border-radius: 6px; outline: none; border: 1px solid rgba(255,255,255,0.1);
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none; width: 20px; height: 20px; background: #ffd166; cursor: pointer; border-radius: 50%; border: 2px solid #1b1f24;
+}
+input[type="range"]::-moz-range-thumb { width: 20px; height: 20px; background: #ffd166; cursor: pointer; border-radius: 50%; border: 2px solid #1b1f24; }
+
+/* Combo Splash Styling */
+.comboSplash { position: fixed; top: 100px; left: 50%; transform: translateX(-50%); z-index: 50; font-size: 56px; color: #ffd166; text-shadow: 0 2px 8px rgba(0,0,0,0.6); pointer-events: none; }
+
+/* Pause Overlay (injected) */
+#pauseOverlay { display: none; }
+
+/* Hide cursor utility */
+.canvas-hide-cursor { cursor: none !important; }
+
+/* Add small hint style for fullscreen prompt */
+#fsHint { color: #c9d1d9; }
+
+/* Fullscreen Gate Overlay */
+#fullscreenGate { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.88); z-index: 4000; }
+.fsGatePanel { background: rgba(20,20,25,0.9); padding: 28px 34px; border-radius: 14px; width: 420px; max-width: 90vw; text-align: center; color: #e6edf3; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 12px 50px rgba(0,0,0,0.6); }
+.fsGateTitle { font-size: 28px; font-weight: 900; margin-bottom: 8px; }
+.fsGateHint { font-size: 14px; opacity: .8; margin-bottom: 18px; }

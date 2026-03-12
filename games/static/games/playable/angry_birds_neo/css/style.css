@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("../images/background.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: bottom;
+  background-size: 100%;
+  overflow: hidden;
+  
+}
+
+
+
+html{
+    cursor: url("../images/cross.png")40 40,crosshair;
+    
+}
+
+#score, #bullets,#lifeline {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+  font-size: 40px;
+}
+#bullets{
+    left : 20px;
+}
+#lifeline{
+    top: 20px;
+    font-size: 30px;
+    text-align: center;
+    color: black;
+    font-weight: 600;
+}
+.splash{
+  cursor : pointer;
+  position : fixed;
+  top : 50%;
+  left : 50%;
+  height : 95%;
+  width : 95%;
+  transform : translate(-50%,-50%);    
+  background-color: rgba(0,0,0,0.7);
+  transition : all ease-in-out 600ms;
+  font-family : consolas;
+  font-size : 30px;
+  color : white;
+  display : flex;
+  justify-content: center;
+  align-items : center;
+  flex-direction: column;
+}
+.hidden{
+  transition : 0.5s;
+  display : none;
+}
+.splash-header {  
+  font-family : consolas;
+  font-size : 30px; 
+}
+
+ul{
+  list-style-type: square;
+  font-size : 25px;
+}

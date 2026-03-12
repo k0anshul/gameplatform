@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Over</title>
+    <style>
+        body{
+            background-image: url('./images/bg.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: bottom;
+            background-size: 100%;
+            overflow: hidden;
+            color: white
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        #go{
+            height: 50vh;
+            width: 50vh;
+            margin-top: 30px;
+        }
+        #ab{
+            height: 15vh;
+            width: 15vh;
+        }
+        #foobar { display: none }
+        .button {
+        display: inline-block;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        color: #ffffff;
+        background-color: #283b45;
+        border-radius: 6px;
+        outline: none;
+        transition: 0.3s;
+        border: 2px solid transparent;
+        margin-top: 20px;
+      }
+      .button:hover,
+      .button:focus {
+        background-color: #c2c7c7;
+        border-color: #7aa8b7;
+        color: #283b45;
+      }
+    </style>
+<script>
+    window.onload=function(){
+    document.getElementById("my_audio").play();
+  }
+</script>
+</head>
+<body>
+    <div class="container">
+        <img id = 'go' src="./images/game_over.gif" alt="">
+        <h1>Do you want to play again?</h1>
+        <img id="ab" src="./images/Red_EyeRoll.webp" alt="">
+        <a class="button" href="./index.html"><span>Play Again</span></a>
+    </div>
+    
+    <audio src="./audio/game-over.mp3" id="my_audio" autoplay="autoplay"></audio>
+    
+</body>
+</html>

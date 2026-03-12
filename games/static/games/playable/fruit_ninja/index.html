@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fruit Ninja</title>
+  <!-- Modern game UI font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <canvas id="gameCanvas"></canvas>
+  <div id="score">Score: 0</div>
+
+  <!-- Fullscreen Gate Overlay -->
+  <div id="fullscreenGate">
+    <div class="fsGatePanel">
+      <div class="fsGateTitle">Click to Enter Fullscreen</div>
+      <div class="fsGateHint">Hold Esc for ~2 seconds to exit fullscreen</div>
+      <button id="enterFullscreenBtn" class="menuButton">Enter Fullscreen</button>
+    </div>
+  </div>
+
+  <!-- Main Menu -->
+  <div id="mainMenu" style="display: none;">
+    <div class="menuPanel">
+      <h1 class="menuTitle">Fruit Ninja</h1>
+      <button id="newGameBtn" class="menuButton">Start Game</button>
+      <button id="settingsBtn" class="menuButton">Settings</button>
+      <button id="highScoresBtn" class="menuButton">High Scores</button>
+    </div>
+  </div>
+
+  <!-- Settings Menu -->
+  <div id="settingsMenu" style="display: none;">
+    <div class="menuPanel">
+      <h2 class="menuTitle">Settings</h2>
+      <div class="setting">
+        <label for="musicVolume">Music Volume</label>
+        <input type="range" id="musicVolume" min="0" max="1" step="0.1" value="1">
+      </div>
+      <div class="setting">
+        <label for="sfxVolume">SFX Volume</label>
+        <input type="range" id="sfxVolume" min="0" max="1" step="0.1" value="1">
+      </div>
+      <button id="backBtn" class="menuButton">Back</button>
+    </div>
+  </div>
+
+  <!-- Game Over Overlay -->
+  <div id="gameOver">
+    <div class="gameOverPanel">
+      <div class="gameOverTitle">GAME OVER</div>
+      <div class="gameOverSubtext">Click to Restart</div>
+    </div>
+  </div>
+  
+  <!-- READY SCREEN OVERLAY -->
+  <div id="readyScreen">
+    <div id="readyText">Ready?</div>
+    <div id="readyApple">🍎</div>
+    <div id="readySubtext">Tap to cut the apple and start</div>
+  </div>
+  
+  <!-- Component Scripts - Order matters for dependencies -->
+  <script src="scripts/core/Constants.js"></script>
+  <script src="scripts/core/GameState.js"></script>
+  <script src="scripts/audio/AudioManager.js"></script>
+  <script src="scripts/utils/GeometryUtils.js"></script>
+  <script src="scripts/rendering/EmojiCache.js"></script>
+  <script src="scripts/entities/GameObject.js"></script>
+  <script src="scripts/entities/Fruit.js"></script>
+  <script src="scripts/entities/FruitSlice.js"></script>
+  <script src="scripts/entities/Particle.js"></script>
+  <script src="scripts/entities/ComboSplash.js"></script>
+  <script src="scripts/effects/EffectsManager.js"></script>
+  <script src="scripts/input/InputManager.js"></script>
+  <script src="scripts/rendering/Renderer.js"></script>
+  <script src="scripts/spawning/SpawnManager.js"></script>
+  <script src="scripts/collision/CollisionDetector.js"></script>
+  <script src="scripts/ui/UIManager.js"></script>
+  <script src="scripts/core/GameEngine.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>
